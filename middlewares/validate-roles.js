@@ -16,6 +16,7 @@ const isAdminRole = (req, res = response, next) => {
   next();
 };
 const hasRole = (...roles) => {
+  //first we check if the roles we send as props are registered in the DB
   roles.forEach((role) => {
     itsValidRole(role);
   });

@@ -14,13 +14,14 @@ const UserSchema = Schema({
     type: String,
     required: [true, 'Password is required'],
   },
-  image: {
+  picture: {
     type: String,
   },
   role: {
     type: String,
     required: true,
     enum: ['USER_ROLE', 'ADMIN_ROLE', 'SALES_ROLE'],
+    default: 'USER_ROLE',
   },
   state: {
     type: Boolean,
