@@ -59,6 +59,8 @@ const patchUsers = (req = request, res = response) => {
 };
 const deleteUsers = async (req = request, res = response) => {
   const { id } = req.params;
+
+  // const uid = req.uid;
   //actualy delete it from db is not recomended because you loose db integrity if that user made things with other objects.-
   // const user = await User.findByIdAndDelete(id);
   //we only change a "flag" like state to "false" in order to indicate the inactivity of that user.-
