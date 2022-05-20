@@ -52,8 +52,6 @@ router.put(
   putUsers
 );
 
-router.patch('/', patchUsers);
-
 router.delete(
   '/:id',
   [

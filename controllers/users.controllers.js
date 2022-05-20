@@ -2,7 +2,7 @@ const { request, response } = require('express');
 const bcryptjs = require('bcryptjs');
 // const { itsValidEmail } = require('../helpers/db-validators.js');
 
-const User = require('../models/user');
+const User = require('../models/user.models');
 
 const getUsers = async (req = request, res = response) => {
   //limit and skip requerire a number and querys are allways strings BE CARFUL
@@ -41,7 +41,7 @@ const postUsers = async (req = request, res = response) => {
 const putUsers = async (req = request, res = response) => {
   const { id } = req.params; //string
 
-  const { _id, password, googel, email, ...rest } = req.body;
+  const { _id, password, google, email, ...rest } = req.body;
   if (password) {
     const salt = bcryptjs.genSaltSync(10);
     rest.password = bcryptjs.hashSync(password, salt);
