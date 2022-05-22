@@ -46,7 +46,7 @@ const putUsers = async (req = request, res = response) => {
     const salt = bcryptjs.genSaltSync(10);
     rest.password = bcryptjs.hashSync(password, salt);
   }
-  const userDB = await User.findByIdAndUpdate(id, rest);
+  const userDB = await User.findByIdAndUpdate(id, rest, { new: true });
 
   res.json({
     userDB,
@@ -64,7 +64,11 @@ const deleteUsers = async (req = request, res = response) => {
   //actualy delete it from db is not recomended because you loose db integrity if that user made things with other objects.-
   // const user = await User.findByIdAndDelete(id);
   //we only change a "flag" like state to "false" in order to indicate the inactivity of that user.-
-  const user = await User.findByIdAndUpdate(id, { state: false });
+  const user = await User.findByIdAndUpdate(
+    id,
+    { state: false },
+    { new: true }
+  );
 
   res.json(user);
 };

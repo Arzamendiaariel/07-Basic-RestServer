@@ -63,9 +63,13 @@ const deleteProduct = async (req, res = response) => {
   const { user, ...rest } = req.body;
   //keeping track of who changed the state of the category
   rest.user = req.user_id;
-  const product = await Product.findByIdAndUpdate(id, {
-    state: false,
-  }).populate('user', 'name');
+  const product = await Product.findByIdAndUpdate(
+    id,
+    {
+      state: false,
+    },
+    { new: true }
+  ).populate('user', 'name');
   res.json(product);
 };
 module.exports = {
