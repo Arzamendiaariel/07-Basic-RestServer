@@ -32,6 +32,9 @@ const ProductSchema = Schema({
     type: Boolean,
     default: true,
   },
+  picture: {
+    type: String,
+  },
 });
 ProductSchema.methods.toJSON = function () {
   const { __v, state, ...data } = this.toObject();

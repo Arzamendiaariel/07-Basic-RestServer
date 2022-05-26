@@ -32,6 +32,13 @@ const existProduct = async (id) => {
     throw new Error(`${id} doesn't exist`);
   }
 };
+const allowedCollections = (collection = '', collections = []) => {
+  const incluided = collections.includes(collection);
+  if (!incluided) {
+    throw new Error(`${collection} is not allowed, try: ${collections}`);
+  }
+  return true;
+};
 
 module.exports = {
   itsValidRole,
@@ -39,4 +46,5 @@ module.exports = {
   existMongoId,
   existCategory,
   existProduct,
+  allowedCollections,
 };

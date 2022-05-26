@@ -7,7 +7,7 @@ const {
   getCategory,
   deleteCategory,
   updateCategory,
-} = require('../controllers/categories.controllers');
+} = require('../controllers');
 const { existCategory } = require('../helpers/db-validators');
 const router = Router();
 //get all categories -public

@@ -13,7 +13,7 @@ const {
   putUsers,
   patchUsers,
   deleteUsers,
-} = require('../controllers/users.controllers.js');
+} = require('../controllers');
 const {
   itsValidRole,
   itsValidEmail,
